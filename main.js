@@ -11,7 +11,6 @@ function partB(){
 }
 
 function commit() {
-  alert('hi')
     $.getJSON('https://api.github.com/repos/geniusassistant/assistantcore/git/refs/heads/master', function(data) {
         $.getJSON(data.object.url, function(data) {
             $('#commit').html(data.message)
@@ -21,3 +20,4 @@ function commit() {
 }
 
 commit()
+$(window).load(commit)

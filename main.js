@@ -9,3 +9,14 @@ $("#scroll").click(function() {
 function partB(){
   $('.collapsible').collapsible('open', 0);
 }
+
+function commit() {
+    $.getJSON('https://api.github.com/repos/geniusassistant/assistantcore/git/refs/heads/master', function(data) {
+        $.getJSON(data.object.url, function(data) {
+            $('#commit').html(data.message)
+            $('#commitauthor').html('- ' + data.author.name)
+        });
+    });
+}
+
+commit()
